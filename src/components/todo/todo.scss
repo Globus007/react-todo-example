@@ -1,0 +1,144 @@
+$svg_size: 15px;
+$base_color: #d9e0e8;
+$bg_color: #353a40;
+
+h1 {
+  text-align: center;
+  color: $base_color;
+  margin: 1rem 0;
+}
+
+.container {
+  position: relative;
+  width: 640px;
+  height: 500px;
+  background: #3b424a;
+  border-radius: 0.5rem;
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+.todo {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: $base_color;
+  margin-bottom: 1rem;
+
+  &__input {
+    display: block;
+    width: 60%;
+    height: 2rem;
+    padding-left: 1rem;
+    color: inherit;
+    background: #353a40;
+    border: none;
+    outline: none;
+  }
+
+  &__input {
+    display: block;
+    width: 60%;
+    height: 2rem;
+    padding-left: 1rem;
+    background: $bg_color;
+    border: none;
+    outline: none;
+  }
+
+  &__ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__li {
+    width: 60%;
+    height: 2rem;
+    line-height: 2rem;
+    display: flex;
+    align-items: center;
+  }
+
+  &__text {
+    flex-grow: 1;
+    font-size: 0.8rem;
+    color: $base_color;
+    margin-left: 0.3rem;
+    background: $bg_color;
+    border: none;
+    margin: 0 0.3rem;
+    padding: 0 0.3rem;
+    outline: none;
+    &.completed {
+      text-decoration: line-through;
+    }
+    &:disabled {
+      background: none;
+    }
+  }
+
+  &__checkbox {
+    outline: none;
+    cursor: pointer;
+    &:hover,
+    &:focus {
+      background: darken($base_color, 20%);
+    }
+  }
+
+  &__btn {
+    margin: 0 0.3rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.1s, visibility 0.1s;
+    color: darken($base_color, 20%);
+
+    &--save {
+      position: relative;
+      left: 25px;
+    }
+
+    &.active {
+      pointer-events: none;
+      color: white;
+    }
+
+    &:hover,
+    &:focus {
+      color: $base_color;
+    }
+
+    &:hover svg,
+    &:focus svg {
+      fill: $base_color;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &.hidden {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+
+  &__svg {
+    width: $svg_size;
+    height: $svg_size;
+    fill: darken($base_color, 20%);
+    transition: fill 0.2s;
+  }
+
+  &__pages {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
