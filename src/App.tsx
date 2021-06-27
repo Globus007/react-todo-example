@@ -58,8 +58,9 @@ const App: React.FC = () => {
 
       if (todos.length === 1) {
         setCurrentPage((prev) => prev - 1);
+      } else {
+        fetchTodosPageable(currentPage);
       }
-      fetchTodosPageable(currentPage);
     }
   };
 
